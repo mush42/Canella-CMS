@@ -1,0 +1,53 @@
+# Wellcome To Canella CMS
+
+## Warning
+
+This is a pre-alpha, non-production-ready software. Using it for production sites is not advisable.
+
+## Introduction
+
+Canella is a Content Management System (CMS) built for simplicity and customizability, it contains all the features you expect from a CMS; including but not limited to:
+
+* Creating, editing, and managing pages
+* Pages, along with their metadata, can be managed in an intuitive,  user-friendly WYSIWYG interface by an authorized user
+* Multiple Page types.
+* Seamless and arbitrary page nesting
+* Comprehensive page metadata and slugging support
+* An interface to manage static content (such as images, documents, and audio files ...etc)
+* Versioning and revision history support for page content using SQLAlchemy-Continuum 
+* A fully functional blogging system, including categories and post tags.
+* A Reusable user-comments system (currently implemented for blog posts)
+* A Powerful inline-editing system for pages and blog posts
+* A Custom WYSIWYG interface  for creating dynamic HTML forms and publishing them as pages and exporting them as a CSV file.
+* User accounts and user profile using flask security
+* A Powerful editable settings system, for users to edit several types of settings in a friendly manor within their browsers
+* Beautifully designed administrative interface based on Flask-Admin, with a custom layout using Material Design and bootstrap in the frontend.
+* A Simple, Material Design inspired user-facing web site design.
+
+Canella CMS is built with Flask and Python. Simplicity and customizability are the overriding principles of 'Canella CMS' design, it tries to provide the absolute set of features that make up a CMS, while leveraging the Micro-ish nature of Flask to leave out many optional features for the end-user to implement. 
+
+## Initial Setup
+
+The following steps will help you to get started with Canella CMS as quickly as possible. Please note that the first step is applicable to Windows users only, as they are likely to face some initial challenges. Please note also that for rapid prototyping the setup of this version is less than straightforward.
+
+* Change your working directory to the repo directory
+* (Windows only) Run the ./.ignore.local/setup.cmd to prepare your environment
+* Run the following command:
+
+```shell
+
+python -m flask createdb
+
+* Then run the local web server:
+
+``` shell
+
+python -m flask run
+
+* Open (localhost:5000) in your browser and you should be welcomed by Canella's homepage
+* Navigate to (localhost:5000/admin/) and use username (admin) and password (admin) to login to the administrative dashboard
+
+
+## Copyright
+
+COPYRIGHT (2017) MUSHARRAF OMER AND THE CANELLA CMS CONTRIBUTERS. LICENSED UNDER THE MIT LICENSE
