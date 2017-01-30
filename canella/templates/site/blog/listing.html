@@ -1,0 +1,52 @@
+{% extends 'site/blog/layout.html' %}
+{% import 'site/macros.html' as macros with context %}
+
+{% block title %}
+Blog
+{% endblock %}
+
+{% block header %}
+  {{super()}}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-1 col-md-8 col-md-offset-1">
+        <header class="intro-header">
+          <h1 class="heading">Canella CMS Blog</h1>
+        </header>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-8 col-md-10 col-md-offset-1"> <!-- post listing -->
+    {% if not posts %}
+      <h1 class="post-title">No Posts</h1>
+      <a class="btn btn-success" href="{{url_for('canella-blog.listing')}}">Back To Blog</a>
+    {% else %}
+      {% for p in posts %}
+        <section class="post-preview">
+          <header>
+          <a href="{{url_for('canella-blog.post', slug=p.slug)}}">
+            <h2 class="post-title">{{p.title}}</h2>
+          </a>
+          </header>
+          <p class="post-meta">
+            Posted by <a href="{{p.author.url}}">{{p.author.name}}</a> on {{p.publish_date}}
+          </p>
+          {% if p.image_path %}
+            <img class="img-responsive post-preview-image" src="{{p.image.src}}" alt="{{p.image_description}}"/>
+          {% endif %}
+          <h5 class="post-subtitle">
+          <p class="post-summary">{{p.body|striptags|truncate(180)}}</p>
+        </h5>
+      </section>
+      <hr>
+      {% endfor %}
+      <hr>
+      {{macros.render_pagination(paginator)}}
+      {% endif %}
+    </div> <!-- post listing -->
+  </div> <!-- row -->
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% if current_user.is_authenticated %}
+<section class="panel panel-default author-info" role="complementary">
+	  <div class="panel-body">
+	  <div class="media">
+		  <div class="media-left media-middle">
+			{% if current_user.profile.image_path %}
+      <img class="media-object img-circle img-thumbnail author-profile-picture" src="{{post.author.profile.image.src}}" alt="{{ _trans('Profile Picture')}}">
+    {% endif %}
+		  </div>
+		  <div class="media-body">
+		  <h5 class="media-heading">{% editable post.author.profile.first_name%}{%endeditable%} {% editable post.author.profile.last_name%}{%endeditable%}</h5>
+			<p class="small author-bio">{% editable post.author.profile.bio %}{{post.author.profile.bio}}{% endeditable %}</p>
+		  </div>
+		</div>
+	  </div>
+	<footer class="panel-footer">
+		<a href="{{ url_for('canella-blog.listing', attr='author', attr_value=post.author.slug) }}">{{ _trans('View Other Posts By this author') }}</a>
+	</footer>
+  </section>
+  {% endif %}

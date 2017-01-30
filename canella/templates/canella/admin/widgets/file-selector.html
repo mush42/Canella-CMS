@@ -1,0 +1,16 @@
+<div class="form-group">
+<div class="col-md-10">
+<div class="col-md-12" style="margin-bottom:12px;">
+<a href="#" class="btn btn-info image-select" data-target-url="{{target_url}}" data-name="{{name}}" role="button">{{button_text}}...</a>
+</div>
+<div class="panel panel-success col-md-4 file-preivew-panel collapse" id="{{name ~ '-preview'}}">
+<div class="panel-heading">{{_trans('Image Preview')}}</div>
+<div class="panel-body">
+<img id="{{ name ~ '-image'}}" class="img-thumbnail img-rounded image-preview" src="" data-name="{{name}}" alt="{{_trans('preview')}}" style="max-width:10em;max-height:10em" />
+</div>
+<div class="panel-footer">
+<a class="btn btn-danger remove-file" data-name="{{name}}" href="#"  role="button">{{_trans('Remove')}}</a>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,77 @@
+{% extends 'site/blog/layout.html' %}
+{% import 'site/macros.html' as macros with context %}
+
+{% if post is not none %}
+{% block meta_author %}{% if post.author %}{{post.author.name}}{% endif %}{% endblock %}
+{% block meta_desc %}{{post.meta_description}}{% endblock %}
+{% block meta_keywords %}{{post.keywords}}{% endblock %}
+{% endif %}
+
+{% block title %}
+{{post.title}} - Blog
+{% endblock title %}
+
+{% block header %}
+  {{super()}}
+  <header class="intro-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+          <div class="post-heading">
+            <h1 class="post-main-heading">{% editable post.title %}{% endeditable %}</h1>
+            <p class="meta small">
+            Posted by 
+            <a href="{{url_for('canella-blog.post_filter', attr_name='author', slug=post.author.slug) }}">
+            {{post.author.name}}
+            </a> 
+            under 
+            <a href="{{url_for('canella-blog.post_filter', attr_name='category', slug=post.category.slug) }}">
+            {{post.category.title}}</a> 
+            on {{post.publish_date}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock header %}
+
+{% block content %}
+    <!-- Post Content -->
+    <article class="post-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+                  {% if not post %}
+                    <h3>{{ _trans('The post you are looking for was not found')}}</h3>
+                    <a href="{{url_for('canella-blog.listing') }}" class="btn btn-success">Back to blog</a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+                      {% else %}
+                      {% if post.image_path %}
+                        <img class="img-responsive post-image" src="{{post.image.src}}" alt="{{post.image_description}}">
+                        <span class="caption text-muted">{{post.image.description}}</span>
+                      {% endif %}
+                      {% editable post.body %}{{post.body|safe}}{% endeditable %}
+                      <hr/>
+                      {% if post.tags %}
+                      <section class="tag-cloud" role="complementary">
+                      <h4>{{ _trans('Post Tags:')}}</h4>
+                      <ul class="list list-inline">
+                      {% for tag in post.tags %}
+                      <li><span class="label label-primary"><a href="{{url_for('canella-blog.post_filter', attr_name='tag', slug=tag.slug) }}">{{tag.title}}</a></span></li>
+                      {% endfor %}
+                    </ul>
+                    </section>
+                    {% endif %}
+                    {% include 'site/includes/metadata-inline-editor.html' with context %}
+                    {% include 'site/includes/author-info-panel.html' with context %}
+                </div>
+            </div>
+        </div>
+    </article>
+    {% include 'site/includes/comments-list-and-form.html' with context %}
+  {% endif %}
+{% endblock content %}

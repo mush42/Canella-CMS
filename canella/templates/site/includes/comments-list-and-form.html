@@ -1,0 +1,36 @@
+{% import 'site/macros.html' as macros with context %}
+{% set comments_are_enabled = post.enable_comments and settings.enable_comments %}
+<div class="container">
+  <div class="row">
+	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+		{% if not comments_are_enabled %}
+        <h4 class="text muted col-lg-offset-2">{{ _trans('Comments are disabled for this post!')}}</h4>
+		{% else %}
+		{% if not post.comments %}
+			<h4>{{ _trans('No Comments Yet!')}}</h4>
+			{% else %}
+			<h4>{{_ntrans('One Thought on this post', '%(num)s Thoughts on this post', post.comments|length)}}</h4>
+			{% endif %}
+			{% endif %}
+			<div class="col-offset-2">
+			{% for comment in post.comments if comments_are_enabled %}
+            <div class="panel panel-default comment">
+            <div class="panel-body">
+			<article>
+				<header>
+					<h4>{{comment.author_name}} Says:</h4>
+					<p class="h5"><time class="text-muted" datetime="{{comment.publish_date}}">on {{comment.publish_date}}</time></p>
+				</header>
+				{{comment.body}}
+				</article>
+			</div>
+			</div>
+			{% endfor %}
+			</div>
+			<hr />
+			{% if comments_are_enabled %}
+			{{macros.render_form(comment_form, title="<h3>Add Your Comment</h3>", submit_text="Share your thought") }}
+			{% endif %}
+      </div>
+    </div>
+  </div>
