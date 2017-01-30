@@ -28,10 +28,23 @@ Canella CMS is built with Flask and Python. Simplicity and customizability are t
 
 ## Initial Setup
 
-The following steps will help you to get started with Canella CMS as quickly as possible. Please note that the first step is applicable to Windows users only, as they are likely to face some initial challenges. Please note also that for rapid prototyping the setup of this version is less than straightforward.
+The following steps will help you to get started with Canella CMS as quickly as possible. Please note that to facilitate rapid prototyping the setup of this version is less than straightforward.
 
 * Change your working directory to the repo directory
+
+```shell
+
+cd canella
+
+* (Optionally) Create a new virtual environment to host your project dependencies
+* Install all dependencies by running:
+
+```shell
+
+pip install requirements.txt
+
 * (Windows only) Run the ./.ignore.local/setup.cmd to prepare your environment
+* If you are not using windows, then set 'Canella' as your FLASK_APP environment variable
 * Run the following command:
 
 ```shell
@@ -40,14 +53,14 @@ python -m flask createdb
 
 * Then run the local web server:
 
-``` shell
+```shell
 
 python -m flask run
 
-* Open (localhost:5000) in your browser and you should be welcomed by Canella's homepage
-* Navigate to (localhost:5000/admin/) and use username (admin) and password (admin) to login to the administrative dashboard
+* Open (http://localhost:5000) in your browser and you should be welcomed by Canella's homepage
+* Navigate to (http://localhost:5000/admin/) and use username (admin) and password (admin) to login to the administrative dashboard
 
 
 ## Copyright
 
-COPYRIGHT (2017) MUSHARRAF OMER AND THE CANELLA CMS CONTRIBUTERS. LICENSED UNDER THE MIT LICENSE
+COPYRIGHT (2017) MUSHARRAF OMER AND THE CANELLA CMS CONTRIBUTERS. LICENSED UNDER THE MIT LICENSE.
