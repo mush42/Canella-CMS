@@ -1,8 +1,15 @@
-# Wellcome To Canella CMS
+## Note:
 
-## Warning
+Canella CMS is my attempt to develop a content management system from the ground up. My goal is two fold: first, to understand how CMSs work, and second, to experiment with different ways to structure a large python project.
 
-This is a pre-alpha, non-production-ready software. Using it for production sites is not advisable.
+I can say that my goals have been achieved. Now I have a comprehensive understanding of the inner workings of the major python CMSs, beside gaining invaluable insights on structuring  python code.
+
+### End of life notice:
+
+This repository at its current state is not useful. In my local setup I have cleaned the code, ported the project to python 3, and reorganized the code to be more testable.
+
+So this repository will not be updated further. If time permits, I will re-upload the different modules included in this repository as separate Flask extensions, each with its test suite and documentation.
+
 
 ## Introduction
 
