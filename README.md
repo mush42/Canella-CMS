@@ -33,33 +33,32 @@ The following steps will help you to get started with Canella CMS as quickly as 
 * Change your working directory to the repo directory
 
 ```shell
-
 cd canella
+```
 
 * (Optionally) Create a new virtual environment to host your project dependencies
 * Install all dependencies by running:
 
 ```shell
-
 pip install requirements.txt
+```
 
 * (Windows only) Run the ./.ignore.local/setup.cmd to prepare your environment
 * If you are not using windows, then set 'Canella' as your FLASK_APP environment variable
 * Run the following command:
 
 ```shell
-
 python -m flask createdb
+```
 
 * Then run the local web server:
 
 ```shell
-
 python -m flask run
+```
 
 * Open (http://localhost:5000) in your browser and you should be welcomed by Canella's homepage
 * Navigate to (http://localhost:5000/admin/) and use username (admin) and password (admin) to login to the administrative dashboard
-
 
 ## Copyright
 
