@@ -1,4 +1,7 @@
+
 ## Note:
+
+The new rewrite is at: https://github.com/mush42/starlit-CMS
 
 Canella CMS is my attempt to develop a content management system from the ground up. My goal is two fold: first, to understand how CMSs work, and second, to experiment with different ways to structure a large python project.
 
